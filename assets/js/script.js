@@ -50,12 +50,15 @@ class Pet {
   }
 
   checkOwnerRegistered(petsArr) {
-    if (petsArr.length > 2) {
+    if (petsArr.length > 1) {
       for (let i = 0; i < petsArr.length - 1; i++) {
         if (this.ownerName === petsArr[i].ownerName) {
           console.log('true');
+          return;
         }
       }
+      console.log(false);
+      return;
     }
   }
 }
