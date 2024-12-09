@@ -49,7 +49,15 @@ class Pet {
     this.breed = _breed;
   }
 
-  checkOwnerRegistered() {}
+  checkOwnerRegistered(petsArr) {
+    if (petsArr.length > 2) {
+      for (let i = 0; i < petsArr.length - 1; i++) {
+        if (this.ownerName === petsArr[i].ownerName) {
+          console.log('true');
+        }
+      }
+    }
+  }
 }
 
 addBtn.addEventListener('click', function (e) {
@@ -66,6 +74,7 @@ function createNewPet() {
   const species = document.getElementById('species').value;
   const breed = document.getElementById('breed').value;
   pets.push(new Pet(petName, ownerName, species, breed));
+  pets[pets.length - 1].checkOwnerRegistered(pets);
 }
 
 function showPets(petsArr) {
