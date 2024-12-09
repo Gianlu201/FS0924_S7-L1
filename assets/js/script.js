@@ -69,6 +69,13 @@ addBtn.addEventListener('click', function (e) {
   showPets(pets);
   drawOwnerAccordion(pets);
   addBtn.parentElement.reset();
+  if (pets.length === 5) {
+    addBtn.setAttribute('disabled', 'true');
+    localStorage.setItem('pets', JSON.stringify(pets));
+
+    const myDatas = JSON.parse(localStorage.getItem('pets'));
+    console.log(myDatas);
+  }
 });
 
 function createNewPet() {
